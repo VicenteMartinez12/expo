@@ -85,61 +85,39 @@
       </q-card-section>
     </q-card>
 
-    <q-card style="max-width: 100%; width: 33%; height: 100%">
+    <q-card style="max-width: 100%; width: 35%; height: 100%">
       <q-card-section
         style="height: 100%; display: flex; flex-direction: column"
       >
         <div
           style="
-            flex-grow: 10;
-            display: flex;
+      
+    
             justify-content: center;
             align-items: center;
-            height: 100%;
+            height: 10%;
+            
           "
         >
-          <img src="../img/1070.png" style="width: 60%; height: 100%; margin-top: 2%;" />
+          <img src="../img/1070.png" style="width: 60%; height: 130%; margin-top: 2%;  margin-left: 20%;" />
         </div>
-        <div style="flex-grow: 3; display: flex">
-          <q-table
-            :rows="rows"
-            :columns="columns"
-            row-key="turno"
-          
-            style="width: 100%; height: 97%; font-size: 50px; margin-top: 5%;"
-            flat
-            bordered
-            :pagination="initialPagination"
-            hide-pagination
-          
-          
-          >
-          
-            <template v-slot:header="props">
-              <q-tr :props="props">
-                
-                <q-th
-                
-                  v-for="col in props.cols"
-                  :key="col.name"
-                  :props="props"
-                  class=" "
-                  style="
-                    font-size: 25px;
-                    background-color: #1d3f93;
-                    color: antiquewhite;
-                  "
+        <div style="flex-grow: 3; display: flex; margin-top: 10%;" >
+          <table class="custom-table">
+            <!-- Table header -->
             
-          
-      
-                >
-                
-           
-                  {{ col.label }}
-                </q-th>
-              </q-tr>
-            </template>
-          </q-table>
+            <thead>
+              <tr>
+                <th v-for="col in columns" :key="col.name">{{ col.label }}</th>
+              </tr>
+            </thead>
+            <!-- Table body -->
+            <tbody>
+              <tr v-for="row in paginatedRows" :key="row.turno" :class="{ 'blink': shouldBlink(row) }">
+                <td>{{ row.turno }}</td>
+                <td>{{ row.posicion }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </q-card-section>
     </q-card>
@@ -147,7 +125,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref,computed } from "vue";
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const handleButtonClick = () => {
@@ -230,9 +208,28 @@ const rows = ref([
     turno: "019",
     posicion: 10,
   },
+  
 ]);
 
+const getRowStyle = (row) => {
+  if (row.turno === '014' && row.posicion === 5) {
+    return { backgroundColor: 'yellow' };
+  }
+};
 
+
+const shouldBlink = (row) => {
+  return row.turno === '014' && row.posicion === 5;
+};
+
+
+
+const paginatedRows = computed(() => {
+  const { page, rowsPerPage } = initialPagination.value;
+  const startIndex = (page - 1) * rowsPerPage;
+  const endIndex = startIndex + rowsPerPage;
+  return rows.value.slice(startIndex, endIndex);
+});
 
 
 defineExpose({ initialPagination });
@@ -247,5 +244,59 @@ defineExpose({ initialPagination });
 .slide-in-down-enter, .slide-in-down-leave-to {
   transform: translateY(-100%);
 }
+
+
+.custom-table {
+  width: 100%;
+  height: 85%;
+  font-size: 25px;
+  margin-top: 5%;
+  border-collapse: collapse;
+  margin-top: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #ddd;
+  
+ 
+  
+}
+
+.custom-table th, .custom-table td {
+  padding: 8px;
+  border: 0px solid #ddd;
+  text-align: center;
+  margin-top: 0%;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd; 
+  
+
+ 
+
+}
+
+.custom-table th {
+  font-size: 20px;
+  background-color: #1d3f93;
+  color: antiquewhite;
+  margin-top: 0%;
+}
+
+.custom-table tbody tr:nth-child(even) {
+   background-color: #f2f2f2;
+  margin-top: 0%;
+
+}
+
+@keyframes blink {
+  0% { background-color: yellow; }
+  50% { background-color: transparent; }
+  100% { background-color: yellow; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+
+
 
 </style>

@@ -82,21 +82,23 @@
       </q-card-section>
     </q-card>
 
-    <q-card style="max-width: 100%; width: 33%; height: 100%">
+    <q-card style="max-width: 100%; width: 35%; height: 100%">
       <q-card-section
         style="height: 100%; display: flex; flex-direction: column"
       >
-        <div
-          style="
-            flex-grow: 10;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-          "
-        >
-          <img src="../img/1070.png" style="width: 60%; height: 100%; margin-top: 2%;" />
-        </div>
+      <div
+  style="
+    
+ 
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    position: relative;
+  "
+>
+  <img src="../img/1070.png" style="width: 60%; height: 100%; margin-top: 2%; position: absolute; margin-left: 20%;" />
+</div>
+
         <div style="flex-grow: 3; display: flex">
           <q-table
             :rows="rows"
@@ -125,9 +127,26 @@
                   "
                 >
                   {{ col.label }}
+
+                  <q-td key="row.turno" :props="props">
+      <q-badge :color="getBadgeColor(props.row.turno)">
+        {{ props.row.turno }}
+      </q-badge>
+    </q-td>
+    <q-td key="row.posicion" :props="props">
+      <q-badge :color="getBadgeColor(props.row.posicion)">
+        {{ props.row.posicion }}
+      </q-badge>
+    </q-td>
                 </q-th>
               </q-tr>
             </template>
+
+
+        
+
+
+
           </q-table>
         </div>
       </q-card-section>
@@ -162,68 +181,79 @@ const columns = ref([
     align: "center",
     field: (row) => row.turno,
     format: (val) => `${val}`,
-    style: "font-size: 25px; font-weight: bold;  ",
+    style: "font-size: 26px; font-weight: bold;  ",
   },
   {
     name: "Posicion",
     align: "center",
     label: "Posición",
-    field: "posicion",
-    style: "font-size: 25px; font-weight: bold;",
+    field: (row) => row.posicion,
+    style: "font-size: 26px; font-weight: bold;",
   },
   
 ]);
 
 const rows = ref([
-  {
-    turno: "SMA010",
+{
+    turno: "010",
     posicion: 1,
   },
   {
-    turno: "SMA011",
+    turno: "011",
     posicion: 2,
     style: 'background-color: red'
   },
   {
-    turno: "SMA012",
+    turno: "012",
     posicion: 3,
+    style: 'background-color: yellow;'
   },
   {
-    turno: "SMA013",
+    turno: "013",
     posicion: 4,
     
   },
   {
-    turno: "SMA014",
+    turno: "014",
     posicion: 5,
     style: 'color=red',
   },
   {
-    turno: "SMA015",
+    turno: "015",
     posicion: 6,
   },
   {
-    turno: "SMA016",
+    turno: "016",
     posicion: 7,
   },
   {
-    turno: "SMA017",
+    turno: "017",
     posicion: 8,
   },
   {
-    turno: "SMA018",
+    turno: "018",
     posicion: 9,
   },
   {
-    turno: "SMA019",
+    turno: "019",
     posicion: 10,
   },
+  
+ 
 ]);
 
 
 const rowStyleFn = (props) => {
   if (props.row.turno !== '011') {
     return { backgroundColor: "red" };
+  }
+};
+
+const getBadgeColor = (value) => {
+  if (value === 'SMA011') {
+    return 'red'; // Cambia el color según tus preferencias
+  } else {
+    return 'green'; // Color por defecto o para otros valores
   }
 };
 
