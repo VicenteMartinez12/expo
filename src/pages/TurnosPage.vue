@@ -9,6 +9,7 @@
         <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/>
         <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 10%;" icon="arrow_forward" @click="handleButtonClick"/>
         
+        
         </div>
         
        
@@ -46,7 +47,7 @@
               <img src="../img/smart/4.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
             <q-carousel-slide :name="3">
-              <img src="../img/smart/6.jpg" style="width: 100%; height: 85%" />
+              <img src="../img/smart/1.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
             <q-carousel-slide :name="1">
               <img src="../img/smart/5.jpg" style="width: 100%; height: 85%" />
