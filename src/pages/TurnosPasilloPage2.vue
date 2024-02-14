@@ -15,37 +15,23 @@
 
         <div style=" display: flex; justify-content: center; align-items: center; height: 95%; margin-top: 0%;">
 
-          <q-table
-            :rows="rows"
-            :columns="columns"
-            row-key="turno"
-            :row-style-fn="rowStyleFn"
-            style="width: 100%; height: 93%; font-size: 50px; margin-top: 5%;"
-            flat
-            bordered
-            :pagination="initialPagination"
-            hide-pagination
-          
-          >
-            <template v-slot:header="props">
-              <q-tr :props="props">
-                <q-th
-                
-                  v-for="col in props.cols"
-                  :key="col.name"
-                  :props="props"
-                  class=" "
-                  style="
-                    font-size: 25px;
-                    background-color: #1d3f93;
-                    color: antiquewhite;
-                  "
-                >
-                  {{ col.label }}
-                </q-th>
-              </q-tr>
-            </template>
-          </q-table>
+          <table class="table" >
+            <thead>
+              <tr >
+                <th>Turno</th>
+                <th style=" width: 20%;">Stand</th>
+                <th style="text-align: center;">Posición</th>
+              </tr>
+
+            </thead>
+            <tbody>
+              <tr v-for="(row, index) in rows" :key="index" :class="{ 'blink': shouldBlink(row) }" >
+                <td>{{ row.turno }}</td>
+                <td>{{ row.marca }}</td>
+                <td style="text-align: center;">{{ row.posicion }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
 
@@ -127,6 +113,8 @@
 <script setup>
 import { ref,onMounted } from "vue";
 import { useRouter } from 'vue-router';
+
+
 const router = useRouter();
 const handleButtonClick = () => {
   router.push('/turno2');
@@ -253,7 +241,78 @@ onMounted(async () => {
 });
 
 
+const rowStyleFn = (row) => {
+  // Lógica para calcular el estilo de la fila
+};
+
+
+const shouldBlink = (row) => {
+  return row.turno === '013' && row.posicion === 3 && row.marca === 'NORMA';
+};
+
+
+
 defineExpose({ initialPagination });
 </script>
+<style lang="scss" scoped>
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  height: 50%; /* Cambia el tamaño de la tabla según lo necesites */
+  font-size: 22px; /* Tamaño de fuente más pequeño */
+  margin-top: 5%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+   font-family: Arial, Helvetica, sans-serif;
+   align-items: center;
+   border-top: 1px solid #ddd;
+}
 
-<style lang="scss" scoped></style>
+/* Estilos para las celdas de encabezado y cuerpo */
+table th,table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; 
+  font-weight: bold;
+  border: 0px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+/* Estilos para las celdas de encabezado específicas */
+
+
+/* Estilo para las celdas de las primeras columnas */
+th:first-child,
+td:first-child {
+  border-left: none; /* Elimina el borde izquierdo */
+}
+
+/* Estilos para las celdas de encabezado */
+th {
+  background-color: #1d3f93;
+  color: antiquewhite;
+  font-weight: bold;
+  text-align: left;
+  
+}
+
+/* Estilos para filas pares */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para filas al pasar el cursor */
+tr:hover {
+  background-color: #ddd;
+}
+
+
+@keyframes blink {
+  0% { background-color: yellow; }
+  50% { background-color: transparent; }
+  100% { background-color: yellow; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+</style>

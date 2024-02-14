@@ -195,47 +195,47 @@ const columns = ref([
 
 const rows = ref([
 {
-    turno: "010",
+    turno: "SMA010",
     posicion: 1,
   },
   {
-    turno: "011",
+    turno: "SMA011",
     posicion: 2,
     style: 'background-color: red'
   },
   {
-    turno: "012",
+    turno: "SMA012",
     posicion: 3,
     style: 'background-color: yellow;'
   },
   {
-    turno: "013",
+    turno: "SMA013",
     posicion: 4,
     
   },
   {
-    turno: "014",
+    turno: "SMA014",
     posicion: 5,
     style: 'color=red',
   },
   {
-    turno: "015",
+    turno: "SMA015",
     posicion: 6,
   },
   {
-    turno: "016",
+    turno: "SMA016",
     posicion: 7,
   },
   {
-    turno: "017",
+    turno: "SMA017",
     posicion: 8,
   },
   {
-    turno: "018",
+    turno: "SMA018",
     posicion: 9,
   },
   {
-    turno: "019",
+    turno: "SMA019",
     posicion: 10,
   },
   
