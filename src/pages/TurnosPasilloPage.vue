@@ -19,7 +19,7 @@
             :rows="rows"
             :columns="columns"
             row-key="turno"
-            :row-style-fn="rowStyleFn"
+           
             style="width: 100%; height: 93%; font-size: 50px; margin-top: 5%;"
             flat
             bordered
@@ -57,9 +57,10 @@
       <q-card-section
         style="height: 100%; display: flex; flex-direction: column"
       >
-        <!-- <div style=" flex-grow: 10; display: flex; justify-content: center; align-items: center; height: 100%;">
-          <p class="text-h4 titulo" style="color: #1d3f93; font-size: 60px; font-family: Arial, Helvetica, sans-serif;">Tony Tiendas</p>
-        </div> -->
+        <div style=" flex-grow: 0; display: flex; justify-content: center; align-items: center; height: 10%;">
+          <!-- <h4 style="background-color: #1d3f93; color: aliceblue;   font-size: 200%; border-radius: 60%;  margin-bottom: -40px;">{{  expo  }}</h4> -->
+         <q-btn style="background-color: #1d3f93; color: aliceblue;   font-size: 200%;   margin-bottom: -25px; height: 50%;">{{ expo }}</q-btn>
+        </div>
         <div style="flex-grow: 3; display: flex">
           <q-carousel
             animated
@@ -73,7 +74,7 @@
             transition-next="slide-left"
             @mouseenter="autoplay = false"
             @mouseleave="autoplay = true"
-            style="width: 98%; height: 90%; margin-top: 15%"
+            style="width: 98%; height: 90%; margin-top: 10%"
           >
           <q-carousel-slide :name="1">
               <img src="../img/institucional/1.jpg" style="width: 100%; height: 95%" />
@@ -125,7 +126,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const handleButtonClick = () => {
@@ -197,7 +198,7 @@ const rows = ref([
   {
     marca: 'NORMA',
     turno: "NOR013",
-    posicion: 4,
+    posicion: 3,
     
   },
   {
@@ -235,11 +236,21 @@ const rows = ref([
 ]);
 
 
-const rowStyleFn = (props) => {
-  if (props.row.turno !== '011') {
-    return { backgroundColor: "red" };
+const apiUrl = 'http://192.168.100.4:8094/EXPOV1/valida/buscaexpoactiva';
+const expo = ref('');
+
+onMounted(async () => {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    // Ajustar la asignación de acuerdo a la estructura real de los datos devueltos por la API
+    expo.value = data.EVENTO;
+    console.log(expo.value); // Verificar el valor en la consola del navegador
+  } catch (error) {
+    console.error('Error al obtener los datos de la API:', error);
   }
-};
+});
+
 
 defineExpose({ initialPagination });
 </script>

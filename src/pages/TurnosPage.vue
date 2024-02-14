@@ -35,21 +35,23 @@
             @mouseleave="autoplay = true"
             style="width: 90%; height: 85%; margin-top: 10%"
           >
-            <q-carousel-slide :name="1">
-              <img src="../img/smart/1.jpg" style="width: 100%; height: 85%" />
-            </q-carousel-slide>
-            <q-carousel-slide :name="2">
+            
+            <q-carousel-slide :name="4">
               <img src="../img/smart/2.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="3">
+            <q-carousel-slide :name="5">
               <img src="../img/smart/3.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="4">
+            <q-carousel-slide :name="2">
               <img src="../img/smart/4.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="5">
+            <q-carousel-slide :name="3">
+              <img src="../img/smart/6.jpg" style="width: 100%; height: 85%" />
+            </q-carousel-slide>
+            <q-carousel-slide :name="1">
               <img src="../img/smart/5.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
+           
             <!-- <q-carousel-slide :name="6">
               <img src="../img/smart/6.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
@@ -102,16 +104,19 @@
             :rows="rows"
             :columns="columns"
             row-key="turno"
-            :row-style-fn="rowStyleFn"
+          
             style="width: 100%; height: 97%; font-size: 50px; margin-top: 5%;"
             flat
             bordered
             :pagination="initialPagination"
             hide-pagination
           
+          
           >
+          
             <template v-slot:header="props">
               <q-tr :props="props">
+                
                 <q-th
                 
                   v-for="col in props.cols"
@@ -123,7 +128,12 @@
                     background-color: #1d3f93;
                     color: antiquewhite;
                   "
+            
+          
+      
                 >
+                
+           
                   {{ col.label }}
                 </q-th>
               </q-tr>
@@ -187,6 +197,7 @@ const rows = ref([
   {
     turno: "012",
     posicion: 3,
+    style: 'background-color: yellow;'
   },
   {
     turno: "013",
@@ -221,13 +232,19 @@ const rows = ref([
 ]);
 
 
-const rowStyleFn = (props) => {
-  if (props.row.turno !== '011') {
-    return { backgroundColor: "red" };
-  }
-};
+
 
 defineExpose({ initialPagination });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.slide-in-down-enter-active, .slide-in-down-leave-active {
+  transition: transform 0.5s ease;
+}
+
+.slide-in-down-enter, .slide-in-down-leave-to {
+  transform: translateY(-100%);
+}
+
+</style>

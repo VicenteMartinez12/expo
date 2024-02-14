@@ -35,19 +35,19 @@
             @mouseleave="autoplay = true"
             style="width: 90%; height: 85%; margin-top: 10%"
           >
-            <q-carousel-slide :name="1">
+            <q-carousel-slide :name="5">
               <img src="../img/smart/1.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="2">
+            <q-carousel-slide :name="4">
               <img src="../img/smart/2.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
             <q-carousel-slide :name="3">
               <img src="../img/smart/3.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="4">
+            <q-carousel-slide :name="2">
               <img src="../img/smart/4.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="5">
+            <q-carousel-slide :name="1">
               <img src="../img/smart/5.jpg" style="width: 100%; height: 85%" />
             </q-carousel-slide>
             <!-- <q-carousel-slide :name="6">
