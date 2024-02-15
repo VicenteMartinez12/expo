@@ -115,9 +115,7 @@
             <q-carousel-slide :name="13">
               <img src="../img/institucional/13.jpg" style="width: 100%; height: 95%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="14">
-              <img src="../img/institucional/14.jpg" style="width: 100%; height: 95%" />
-            </q-carousel-slide>
+           
           </q-carousel>
         </div>
       </q-card-section>
@@ -223,13 +221,13 @@ const rows = ref([
     posicion: 4,
   },
   {
-    marca: 'MAGISTRAL',
-    turno: "MAG018",
+    marca: 'SCRIBE',
+    turno: "SCR018",
     posicion: 9,
   },
   {
-    marca: 'CRAYOLA',
-    turno: "CRA019",
+    marca: 'BIC',
+    turno: "BIC019",
     posicion: 5,
   },
   

@@ -13,9 +13,9 @@
 
                 <!-- Seccion de la tabla de los turnos en el pasillo -->
 
-        <div style=" display: flex; justify-content: center; align-items: center; height: 95%; margin-top: 0%;">
+        <div class="table-container" style=" display: flex; justify-content: center; align-items: center; height: 95%; margin-top: 0%;">
 
-          <table class="table" >
+          <table class="table moving-table" >
             <thead>
               <tr >
                 <th>Turno</th>
@@ -100,9 +100,7 @@
             <q-carousel-slide :name="13">
               <img src="../img/institucional/13.jpg" style="width: 100%; height: 95%" />
             </q-carousel-slide>
-            <q-carousel-slide :name="14">
-              <img src="../img/institucional/14.jpg" style="width: 100%; height: 95%" />
-            </q-carousel-slide>
+            
           </q-carousel>
         </div>
       </q-card-section>
@@ -208,12 +206,12 @@ const rows = ref([
     posicion: 4,
   },
   {
-    marca: 'MAGISTRAL',
+    marca: 'SCRIBE',
     turno: "018",
     posicion: 9,
   },
   {
-    marca: 'CRAYOLA',
+    marca: 'BIC',
     turno: "019",
     posicion: 5,
   },
@@ -221,7 +219,17 @@ const rows = ref([
 ]);
 
 
+function updateTableData() {
+  // Obtener el último elemento de la lista
+  const lastRow = rows.value[rows.value.length - 1];
+  // Eliminar el último elemento de la lista
+  rows.value.pop();
+  // Insertar el último elemento al principio de la lista
+  rows.value.unshift(lastRow);
+}
 
+// Llamar a la función de actualización en un intervalo para que la tabla se actualice continuamente
+setInterval(updateTableData, 10000); // 5000 milisegundos (5 segundos)
 
 
 
@@ -247,8 +255,9 @@ const rowStyleFn = (row) => {
 
 
 const shouldBlink = (row) => {
-  return row.turno === '013' && row.posicion === 3 && row.marca === 'NORMA';
+  return row.turno === '018' || row.turno === '019';
 };
+
 
 
 
@@ -315,4 +324,25 @@ tr:hover {
 .blink {
   animation: blink 1s infinite;
 }
+
+
+@keyframes moveTableData {
+  0% {
+    transform: translateY(0%);
+ 
+  }
+  100% {
+    transform: translateY(-100%);
+  
+  }
+}
+
+.table-content {
+  overflow-y: hidden; /* Ocultar el desbordamiento vertical */
+  height: 100%; /* Ajustar la altura al tamaño deseado */
+
+ 
+}
+
+
 </style>
