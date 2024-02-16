@@ -6,7 +6,7 @@
       <q-card-section style="height: 100%; display: flex; flex-direction: column">
         <!-- 1/4 del q-card-section -->
         <div style=" display: flex; justify-content: center; align-items: center;height: 8%;">
-        <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/>
+        <!-- <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/> -->
         <!-- <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 10%;" icon="arrow_forward" @click="handleButtonClick"/> -->
         
         </div>
@@ -47,7 +47,7 @@
             
           "
         >
-          <img src="../img/1070.png" style="width: 60%; height: 130%; margin-top: 2%;  margin-left: 20%;" />
+          <!-- <img src="../img/1070.png" style="width: 60%; height: 130%; margin-top: 2%;  margin-left: 20%;" /> -->
         </div>
         <div style="flex-grow: 3; display: flex; margin-top: 10%;" >
           <table class="custom-table">
@@ -60,10 +60,10 @@
             </thead>
             <!-- Table body -->
             <tbody>
-              <tr v-for="row in paginatedRows2" :key="row.turno2" :class="{ 'blink': shouldBlink(row) }">
+              <tr v-for="row in paginatedRows2" :key="row.turno2" :class="{ 'blink': shouldBlink(row), 'columna3':columna3(row) }">
                 <td>{{ row.turno2 }}</td>
                 <td>{{ row.posicion2 }}</td>
-                <td>{{ row.estatus2 }}</td>
+                <td class="columna3">{{ row.estatus2 }}</td>
               </tr>
             </tbody>
           </table>
@@ -157,12 +157,12 @@ const rows = ref([
   {
     turno: "011",
     posicion: 2,
-    style: 'background-color: red'
+ 
   },
   {
     turno: "012",
     posicion: 3,
-    style: 'background-color: yellow;'
+   
   },
   {
     turno: "013",
@@ -204,21 +204,22 @@ const rows2 = ref([
   },
   {
     turno2: "020",
-    posicion2: 4,
+    estatus2:'Espera'
+   
     
   },
   {
     turno2: "021",
-    posicion2: 5,
+
     estatus2:''
   },
   {
     turno2: "022",
-    posicion2: 6,
+  
   },
   {
     turno2: "023",
-    posicion2: 7,
+   
   },
   
   
@@ -232,9 +233,14 @@ const getRowStyle = (row) => {
 
 
 const shouldBlink = (row) => {
-  return row.turno2 === '019' && row.posicion2 === 3;
+  return row.turno2 === '020' && row.posicion2 === 3 || row.turno2 === '019';
 };
 
+
+const columna3=(row)=>{
+  return row.turno2 === '020;'
+
+}
 
 
 const paginatedRows = computed(() => {
@@ -271,7 +277,7 @@ defineExpose({ initialPagination });
 .custom-table {
   width: 100%;
   height: 100%;
-  font-size: 40px;
+  font-size: 50px;
   margin-top: 5%;
   border-collapse: collapse;
   margin-top: 0%;
@@ -311,13 +317,76 @@ defineExpose({ initialPagination });
 }
 
 @keyframes blink {
-  0% { background-color: yellow; }
-  50% { background-color: transparent; }
-  100% { background-color: yellow; }
+ 
+
+
+  0% {
+  
+    font-size: 50px;
+    background-color: yellow;
+    color: black;
+  }
+  
+  
+  50% {
+  
+    font-size: 50px;
+    background-color: transparent;
+    color: black;
+
+
+  }
+
+  // 75% {
+  //   transform: scale(1);
+  //   font-size: 45PX;
+  //   background-color: transparent;
+
+
+  // }
+
+  100% {
+ 
+    font-size: 50px;
+    background-color: yellow;
+    color: black;
+  }
 }
 
+
+@keyframes columna3{
+
+
+0%{
+  color: blueviolet;
+
+}
+
+50%{
+  color: blueviolet;
+  
+}
+
+100%{
+
+  color: blueviolet;
+  
+}
+
+
+
+}
+
+
+
+
+
 .blink {
-  animation: blink 1s infinite;
+  animation: blink 2s infinite;
+}
+
+.columna3{
+  color: blueviolet;
 }
 
 
