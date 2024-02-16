@@ -1,17 +1,17 @@
 <img src="../img/1070.png" />
 <template>
-  <div style="height: 99.4vh; display: flex; align-items: center">
+  <div style="height: 100vh; display: flex; align-items: center">
     <q-card style="max-width: 50%; width: 50%; height: 100%; margin-right: .01%;" >
       
       <q-card-section style="height: 100%; display: flex; flex-direction: column">
         <!-- 1/4 del q-card-section -->
-        <div style=" display: flex; justify-content: center; align-items: center;height: 8%;">
+        <div style=" display: flex; justify-content: center; align-items: center;">
         <!-- <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/> -->
         <!-- <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 10%;" icon="arrow_forward" @click="handleButtonClick"/> -->
         
         </div>
         
-        <div style="flex-grow: 3; display: flex; margin-top: 12.3%;" >
+        <div style="flex-grow: 3; display: flex;" >
           <table class="custom-table">
             <!-- Table header -->
             
@@ -43,13 +43,13 @@
     
             justify-content: center;
             align-items: center;
-            height: 10%;
+           
             
           "
         >
           <!-- <img src="../img/1070.png" style="width: 60%; height: 130%; margin-top: 2%;  margin-left: 20%;" /> -->
         </div>
-        <div style="flex-grow: 3; display: flex; margin-top: 10%;" >
+        <div style="flex-grow: 3; display: flex; " >
           <table class="custom-table">
             <!-- Table header -->
             
@@ -63,7 +63,7 @@
               <tr v-for="row in paginatedRows2" :key="row.turno2" :class="{ 'blink': shouldBlink(row), 'columna3':columna3(row) }">
                 <td>{{ row.turno2 }}</td>
                 <td>{{ row.posicion2 }}</td>
-                <td class="columna3">{{ row.estatus2 }}</td>
+                <td>{{ row.estatus2 }}</td>
               </tr>
             </tbody>
           </table>
@@ -98,7 +98,7 @@ const columns = ref([
     required: true,
     label: "Turno",
     align: "center",
-    field: (row) => row.turno2,
+    field: (row) => row.turno,
     format: (val) => `${val}`,
     style: "font-size: 25px; font-weight: bold;  ",
   },
@@ -127,7 +127,7 @@ const columns2 = ref([
     required: true,
     label: "Turno",
     align: "center",
-    field: (row) => row.turno,
+    field: (row) => row.turno2,
     format: (val) => `${val}`,
     style: "font-size: 25px; font-weight: bold;  ",
   },
@@ -190,16 +190,16 @@ const rows = ref([
 const rows2 = ref([
   {
     turno2: "017",
-    posicion2: 1,
+    posicion2: 8,
   },
   {
     turno2: "018",
-    posicion2: 2,
+    posicion2: 9,
     style: 'background-color: red'
   },
   {
     turno2: "019",
-    posicion2: 3,
+    posicion2: 10,
     estatus2:'Llamando'
   },
   {
