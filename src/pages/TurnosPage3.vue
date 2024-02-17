@@ -63,7 +63,8 @@
               <tr v-for="row in paginatedRows2" :key="row.turno2" :class="{ 'blink': shouldBlink(row), 'columna3':columna3(row) }">
                 <td>{{ row.turno2 }}</td>
                 <td>{{ row.posicion2 }}</td>
-                <td>{{ row.estatus2 }}</td>
+                <!-- <td>{{ row.estatus2 }}</td> -->
+                <td :style="{ color: getEstatusColor(row.estatus2) }">{{ row.estatus2 }}</td>
               </tr>
             </tbody>
           </table>
@@ -211,15 +212,15 @@ const rows2 = ref([
   {
     turno2: "021",
 
-    estatus2:''
+    estatus2:'Espera'
   },
   {
     turno2: "022",
-  
+    estatus2:'Espera'
   },
   {
     turno2: "023",
-   
+    estatus2:'Espera'
   },
   
   
@@ -258,6 +259,22 @@ const paginatedRows2 = computed(() => {
   // Devolver un conjunto diferente de filas para la segunda tabla
   return rows2.value.slice(startIndex, endIndex);
 });
+
+
+
+const getCustomRowStyle = (row) => {
+  if (row.turno2 === '020' && row.estatus2 === 'Espera') {
+    return { color: 'purple' }; // Cambia el color del texto a morado
+  }
+};
+
+const getEstatusColor = (estatus) => {
+  if (estatus === 'Espera') {
+    return 'purple'; // Cambia el color del texto a morado
+  } else {
+    return ''; // Deja el color del texto sin cambios
+  }
+};
 
 
 defineExpose({ initialPagination });
