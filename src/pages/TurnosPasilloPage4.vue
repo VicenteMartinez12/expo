@@ -32,10 +32,20 @@
               </q-tr>
             </template>
             <template v-slot:body-cell-posicion="props">
-    <q-td :props="props" >
-      <div >{{ props.row.posicion }}</div>
+    <q-td :props="props" class="posicion-cell" :class="{ 'flashing': props.row.posiciones[0] === flashingIndex.valueOf }">
+      <div class="posiciones-container" v-if="Array.isArray(props.row.posiciones)">
+        <div v-for="(posicion, index) in props.row.posiciones" :key="index" class="posicion text-right">
+          {{ index > 0 ? '-' : '' }}{{ posicion }}
+        </div>
+      </div>
+      <div v-else>{{ props.row.posicion }}</div>
     </q-td>
   </template>
+  <template v-slot:body-cell-marca="props">
+  <q-td :props="props" >
+    <img :src="props.row.marca" style="max-width: 300px; max-height: 600px; height: 80px; width: 250px; padding: 0%;">
+  </q-td>
+</template>
           </q-table>
         </div>
       </q-card-section>
@@ -56,20 +66,19 @@ const slide = ref(1);
 const autoplay = ref(true);
 
 const initialPagination = ref({
-  // sortBy: "desc",
   descending: false,
   page: 1,
   rowsPerPage: 10,
-  // rowsNumber: xx if getting data from a server
+
 });
 
 const columns = ref([
 {
     name: "marca",
-    align: "left",
+    align: "center",
     label: "Stand",
     field: "marca",
-    style: "font-size: 85px; font-weight: bold; width: 30%; ",
+    style: "font-size: 0px; font-weight: bold; width: 30%; ",
 
   },
 
@@ -78,8 +87,9 @@ const columns = ref([
     name: "posicion",
     label: "Posición",
     field: "posicion",
-    align:"",
-    style: "font-size: 85px; font-weight: bold; width: 70%;",
+    align:"right",
+    style: "font-size: 74px; font-weight: bold; width: 70%; padding: 0px;",
+    
   },
   
   
@@ -89,33 +99,33 @@ const columns = ref([
 
 const rows = ref([
   {
-    marca: 'DIXON',
-    posicion:1,
+    marca: `src/img/marcas/dixon.png` ,
+    posiciones: ['001','002','003','004','005',] ,
   },
   {
-    marca: 'NEWELL',
-    posicion: 1,
+    marca:  `src/img/marcas/norma.png`,
+    posiciones: ['001','002','003','004','005','006'] 
   },
   {
-    marca: 'NORMA',
-    posicion: 1,
+    marca:  `src/img/marcas/scribe.png`,
+    posiciones: ['001','002','003','004'] 
   },
   {
-    marca: 'SCRIBE',
-    posicion: 1,
+    marca:  `src/img/marcas/smart.png`,
+    posiciones: ['001','002','003'] 
     
   },
   {
-    marca: 'SMART',
+    marca:  `src/img/marcas/smarty.png`,
 
-    posicion:1,
+    posiciones: ['001','002','003','004','005','006'] 
 
   },
   
   
 ]);
 
-
+const flashingIndex = ref(0);
 
 defineExpose({ initialPagination });
 </script>
@@ -124,15 +134,32 @@ defineExpose({ initialPagination });
 .posicion-cell {
   white-space: nowrap;
   overflow: hidden;
+  text-align: right;
+
+  
 }
 
-.posicion-content {
-  animation: marquee 10s linear infinite;
+.posiciones-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+.posicion {
+  margin-right: 10px; /* Espacio entre las posiciones */
+  text-align: right;
+  display: inline-block; 
+ 
+ 
 }
 
+
+.flashing {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    background-color: yellow;
+  }
+}
 </style>

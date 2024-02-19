@@ -2,7 +2,7 @@
 const routes = [
   {
     path: '/',
-    component: () => import('pages/TurnosPasilloPage3.vue'),
+    component: () => import('pages/TurnosPasilloPage4.vue'),
 
     
     children: [
@@ -26,8 +26,6 @@ const routes = [
     
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue')
