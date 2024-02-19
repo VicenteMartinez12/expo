@@ -2,7 +2,11 @@
   <div style="height: 99.8vh; display: flex; align-items: center">
     <q-card style="max-width: 100%; width: 100%; height: 100%">
       <q-card-section style="height: 100%; display: flex; flex-direction: column">
+        <div style=" display: flex; justify-content: center; align-items: center;height: 8%;">
+        <q-btn color="primary" label="" style="margin-left: 2%;" icon="arrow_forward" @click="handleButtonClick"/>
+        </div>
         <div style="display: flex; justify-content: center; align-items: center; height: 100%; margin-top: 0%;">
+          
           <q-table
             :rows="rows"
             :columns="columns"
@@ -12,6 +16,7 @@
             bordered
             :pagination="initialPagination"
             hide-pagination
+            class="tabla"
           >
             <template v-slot:header="props">
               <q-tr :props="props">
@@ -58,7 +63,7 @@ import { ref,onMounted,onBeforeUnmount } from "vue";
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const handleButtonClick = () => {
-  router.push('/');
+  router.push('/turno3');
 };
 
 
@@ -85,7 +90,7 @@ const columns = ref([
   
   {
     name: "posicion",
-    label: "Posición",
+    label: "Proximos turnos",
     field: "posicion",
     align:"right",
     style: "font-size: 74px; font-weight: bold; width: 70%; padding: 0px;",
@@ -116,7 +121,7 @@ const rows = ref([
     
   },
   {
-    marca:  `src/img/marcas/smarty.png`,
+    marca:  `src/img/marcas/newell.png`,
 
     posiciones: ['001','002','003','004','005','006'] 
 
@@ -143,6 +148,11 @@ defineExpose({ initialPagination });
 </script>
 
 <style lang="scss" scoped>
+
+
+.q-table.tabla .q-tbody .q-tr:nth-child(even) {
+  background-color: red;
+}
 .posicion-cell {
   white-space: nowrap;
   overflow: hidden;
@@ -174,4 +184,6 @@ defineExpose({ initialPagination });
     background-color: yellow;
   }
 }
+
+
 </style>
