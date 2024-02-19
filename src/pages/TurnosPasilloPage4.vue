@@ -90,7 +90,7 @@ const columns = ref([
   
   {
     name: "posicion",
-    label: "Proximos turnos",
+    label: "Próximos turnos",
     field: "posicion",
     align:"right",
     style: "font-size: 74px; font-weight: bold; width: 70%; padding: 0px;",
@@ -126,6 +126,7 @@ const rows = ref([
     posiciones: ['001','002','003','004','005','006'] 
 
   },
+  
   
   
 ]);
@@ -164,6 +165,7 @@ defineExpose({ initialPagination });
 .posiciones-container {
   display: flex;
   justify-content: flex-end;
+
 }
 
 .posicion {
@@ -171,7 +173,7 @@ defineExpose({ initialPagination });
   text-align: right;
   display: inline-block; 
  
- 
+
 }
 
 
