@@ -32,9 +32,9 @@
               </q-tr>
             </template>
             <template v-slot:body-cell-posicion="props">
-    <q-td :props="props" class="posicion-cell" :class="{ 'flashing': props.row.posiciones[0] === flashingIndex.valueOf }">
+    <q-td :props="props" class="posicion-cell">
       <div class="posiciones-container" v-if="Array.isArray(props.row.posiciones)">
-        <div v-for="(posicion, index) in props.row.posiciones" :key="index" class="posicion text-right">
+        <div v-for="(posicion, index) in props.row.posiciones" :key="index" class="posicion text-right" :class="{ 'flashing': posicion === '001' }">
           {{ index > 0 ? '-' : '' }}{{ posicion }}
         </div>
       </div>
@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref,onMounted } from "vue";
+import { ref,onMounted,onBeforeUnmount } from "vue";
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const handleButtonClick = () => {
@@ -126,6 +126,18 @@ const rows = ref([
 ]);
 
 const flashingIndex = ref(0);
+
+onMounted(() => {
+  // Cada segundo, incrementa flashingIndex
+  const interval = setInterval(() => {
+    flashingIndex.value = (flashingIndex.value + 1) % 6; // Considerando que el máximo de posiciones es 6
+  }, 1000);
+
+  onBeforeUnmount(() => {
+    clearInterval(interval);
+  });
+});
+
 
 defineExpose({ initialPagination });
 </script>
