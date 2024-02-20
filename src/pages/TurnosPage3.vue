@@ -168,19 +168,19 @@ const rows = ref([
     turno: "013",
     posicion: 4,
   },
-  {
-    turno: "014",
-    posicion: 5,
-    estatus: "",
-  },
-  {
-    turno: "015",
-    posicion: 6,
-  },
-  {
-    turno: "016",
-    posicion: 7,
-  },
+  // {
+  //   turno: "014",
+  //   posicion: 5,
+  //   estatus: "",
+  // },
+  // {
+  //   turno: "015",
+  //   posicion: 6,
+  // },
+  // {
+  //   turno: "016",
+  //   posicion: 7,
+  // },
 ]);
 
 const rows2 = ref([

@@ -93,7 +93,7 @@ const columns = ref([
     label: "Próximos turnos",
     field: "posicion",
     align:"right",
-    style: "font-size: 80px; font-weight: bold; width: 70%; padding: 0px;",
+    style: "font-size: 74px; font-weight: bold; width: 70%; padding: 0px;",
     
   },
   
@@ -153,14 +153,13 @@ defineExpose({ initialPagination });
 
 .q-table.tabla .q-tbody .q-tr:nth-child(even) {
   background-color: red;
-
 }
 .posicion-cell {
   white-space: nowrap;
   overflow: hidden;
   text-align: right;
 
-  line-height: 1;
+  
 }
 
 .posiciones-container {
