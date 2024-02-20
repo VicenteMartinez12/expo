@@ -16,12 +16,12 @@
         </div>
 
         <div style="flex-grow: 3; display: flex">
-          <table class="custom-table">
+          <table class="custom-table" >
             <!-- Table header -->
 
             <thead>
-              <tr>
-                <th v-for="col in columns" :key="col.name">{{ col.label }}</th>
+              <tr >
+                <th  v-for="col in columns" :key="col.name">{{ col.label }}</th>
               </tr>
             </thead>
             <!-- Table body -->
@@ -32,9 +32,9 @@
                 :class="{ blink: shouldBlink(row) }"
                 style="line-height: 1"
               >
-                <td>{{ row.turno }}</td>
-                <td>{{ row.posicion }}</td>
-                <td>{{ row.estatus }}</td>
+                <td style=" line-height: 1; padding: 0px;" >{{ row.turno }}</td>
+                <td style=" line-height: 1; padding: 0px;">{{ row.posicion }}</td>
+                <td style=" line-height: 1; padding: 0px;">{{ row.estatus }}</td>
               </tr>
             </tbody>
           </table>
@@ -42,7 +42,7 @@
       </q-card-section>
     </q-card>
 
-    <q-card style="max-width: 50%; width: 50%; height: 100%">
+    <q-card style="max-width: 50%; width: 50%; height: 100%; ">
       <q-card-section
         style="height: 100%; display: flex; flex-direction: column"
       >
@@ -65,10 +65,10 @@
                 :key="row.turno2"
                 :class="{ blink: shouldBlink(row), columna3: columna3(row) }"
               >
-                <td>{{ row.turno2 }}</td>
-                <td>{{ row.posicion2 }}</td>
+                <td style=" line-height: 1;">{{ row.turno2 }}</td>
+                <td style=" line-height: 1;">{{ row.posicion2 }}</td>
                 <!-- <td>{{ row.estatus2 }}</td> -->
-                <td :style="{ color: getEstatusColor(row.estatus2) }">
+                <td :style="{ color: getEstatusColor(row.estatus2) }" style="font-size: 50px;">
                   {{ row.estatus2 }}
                 </td>
               </tr>
@@ -107,14 +107,14 @@ const columns = ref([
     align: "center",
     field: (row) => row.turno,
     format: (val) => `${val}`,
-    style: "font-size: 10px; font-weight: bold;  ",
+    style: "font-size: 0px;   ",
   },
   {
     name: "Posicion",
     align: "center",
     label: "Posición",
     field: "posicion2",
-    style: "font-size: 10px; font-weight: bold;",
+    style: "font-size: 0px; font-weight: bold;",
   },
   {
     name: "Estatus",
@@ -284,7 +284,10 @@ defineExpose({ initialPagination });
   margin-top: 0%;
   font-family: Arial, Helvetica, sans-serif;
   border: 1px solid #ddd;
-  padding: 15%;
+  padding: 0%;
+  line-height: 1;
+
+
 }
 
 .custom-table th,
@@ -295,6 +298,8 @@ defineExpose({ initialPagination });
   margin-top: 0%;
   font-weight: bold;
   border-bottom: 1px solid #ddd;
+  line-height: 1;
+  
 }
 
 .custom-table th {
@@ -303,12 +308,28 @@ defineExpose({ initialPagination });
   color: antiquewhite;
   margin-top: 0%;
   padding: 0%;
+  
+  
+  
+
 }
 
+.custom-table td {
+  font-size: 80px;
+  margin-top: 0%;
+  padding: 0%;
+  line-height: 1;
+  
+  
+  
+
+}
 .custom-table tbody tr:nth-child(even) {
   background-color: #f2f2f2;
   margin-top: 0%;
   padding: 0%;
+  line-height: .5;
+
 }
 
 @keyframes blink {
@@ -316,12 +337,14 @@ defineExpose({ initialPagination });
     font-size: 55px;
     background-color: yellow;
     color: black;
+    line-height: 1;
   }
 
   50% {
     font-size: 55px;
     background-color: transparent;
     color: black;
+    line-height: 1;
   }
 
   // 75% {
@@ -335,28 +358,34 @@ defineExpose({ initialPagination });
     font-size: 55px;
     background-color: yellow;
     color: black;
+    line-height: 1;
   }
 }
 
 @keyframes columna3 {
   0% {
     color: blueviolet;
+    line-height: 1;
   }
 
   50% {
     color: blueviolet;
+    line-height: 1;
   }
 
   100% {
     color: blueviolet;
+    line-height: 1;
   }
 }
 
 .blink {
   animation: blink 2s infinite;
+  line-height: 1;
 }
 
 .columna3 {
   color: blueviolet;
+  line-height: 1;
 }
 </style>
