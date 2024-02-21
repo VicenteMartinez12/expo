@@ -2,14 +2,14 @@
 <template>
   <div style="height: 100vh; display: flex; align-items: center">
     <q-card
-      style="max-width: 33.3%; width: 33.3%; height: 100%; margin-right: 0.01%"
+      style="max-width: 33.3%; width: 33.3%; height: 100%; margin-right: 0.01%; border-color: white;"
     >
       <q-card-section
-        style="height: 100%; display: flex; flex-direction: column"
+        style="height: 100%; display: flex; flex-direction: column; border-color: white;"
       >
         <!-- 1/4 del q-card-section -->
         <div
-          style="display: flex; justify-content: center; align-items: center"
+          style="display: flex; justify-content: center; align-items: center; border-color: white;"
         >
           <!-- <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/> -->
           <!-- <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 10%;" icon="arrow_forward" @click="handleButtonClick"/> -->
@@ -57,7 +57,7 @@
             <!-- Cuerpo de la tabla -->
             <tbody>
               <!-- Calcular tamaño de fila -->
-              <tr v-for="row in rows2" :key="row.turno2" style="height: calc(100% / 6);">
+              <tr :class="{ blink: shouldBlink(row) }" v-for="row in rows2" :key="row.turno2" style="height: calc(100% / 6);">
                 <td>{{ row.posicion2 }}</td>
                 <td>{{ row.turno2 }}</td>
                
@@ -130,7 +130,7 @@ const columns = ref([
   {
     name: "Posicion",
     align: "center",
-    label: "Posición",
+    label: "Módulo",
     field: "posicion2",
     style: "font-size: 0px; font-weight: bold;",
   },
@@ -157,7 +157,7 @@ const columns2 = ref([
   {
     name: "Posicion",
     align: "center",
-    label: "Posición",
+    label: "Módulo",
     field: "posicion",
     style: "font-size: 10px; font-weight: bold;",
   },
@@ -301,7 +301,7 @@ const getRowStyle = (row) => {
 };
 
 const shouldBlink = (row) => {
-  return (row.turno2 === "020" && row.posicion2 === 3) || row.turno2 === "019";
+  return (row.turno2 === "018");
 };
 
 const columna3 = (row) => {
@@ -338,6 +338,9 @@ const getEstatusColor = (estatus) => {
   }
 };
 
+
+
+
 defineExpose({ initialPagination });
 </script>
 
@@ -373,14 +376,14 @@ padding: 0%;
   text-align: center;
   margin-top: 0%;
   font-weight: bold;
-  //  background-color: #5bd0ff;
+   background-color: #5bd0ff;
   border-radius: 1%;
   
 }
 
 .custom-table2 th {
   font-size: 40px;
-  background-color: #1d3f93;
+  background-color: #e24502;
   color: antiquewhite;
   margin-top: 0%;
   padding: 0%;
@@ -581,7 +584,7 @@ padding: 0%;
 }
 
 .blink {
-  animation: blink 2s infinite;
+  animation: blink 1s infinite;
   
 }
 
