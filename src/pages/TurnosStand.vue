@@ -231,16 +231,16 @@ const rows = ref([
 
 const rows2 = ref([
   {
-    turno2: "017",
+    turno2: "016",
     posicion2: 7,
   },
   {
-    turno2: "018",
+    turno2: "017",
     posicion2: 8,
     style: "background-color: red",
   },
   {
-    turno2: "019",
+    turno2: "018",
     posicion2: 9,
     estatus2: "Llamando",
   },
@@ -355,16 +355,14 @@ defineExpose({ initialPagination });
 .custom-table2 {
   width: 100%;
   height: 100%;
-  font-size: 51px;
-  margin-top: 5%;
-  border-collapse: collapse;
+  font-size: 53.8px;
+
+ 
   margin-top: 0%;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid #000000;
-  padding-bottom: 10px;
   border: 2px solid #000000;
-
-
+border-radius: 1%;
+padding: 0%;
 
 }
 
@@ -375,8 +373,8 @@ defineExpose({ initialPagination });
   text-align: center;
   margin-top: 0%;
   font-weight: bold;
-  border-bottom: 1px solid #ddd;
-  background-color: #3699c0;
+  //  background-color: #5bd0ff;
+  border-radius: 1%;
   
 }
 
@@ -386,6 +384,7 @@ defineExpose({ initialPagination });
   color: antiquewhite;
   margin-top: 0%;
   padding: 0%;
+
   
   
   
@@ -396,17 +395,17 @@ defineExpose({ initialPagination });
   font-size: 80px;
   margin-top: 0%;
   padding: 0%;
-  line-height: 1;
+
   
   
   
 
 }
 .custom-table2 tbody tr:nth-child(even) {
-  background-color: #3699c0;
+  background-color: #5bd0ff;
   margin-top: 0%;
   padding: 0%;
-  line-height: .5;
+
 
 }
 
@@ -415,14 +414,14 @@ defineExpose({ initialPagination });
     font-size: 55px;
     background-color: yellow;
     color: black;
-    line-height: 1;
+ 
   }
 
   50% {
     font-size: 55px;
     background-color: transparent;
     color: black;
-    line-height: 1;
+  
   }
 
   // 75% {
@@ -436,35 +435,35 @@ defineExpose({ initialPagination });
     font-size: 55px;
     background-color: yellow;
     color: black;
-    line-height: 1;
+ 
   }
 }
 
 @keyframes columna3 {
   0% {
     color: blueviolet;
-    line-height: 1;
+
   }
 
   50% {
     color: blueviolet;
-    line-height: 1;
+   
   }
 
   100% {
     color: blueviolet;
-    line-height: 1;
+    
   }
 }
 
 .blink {
   animation: blink 2s infinite;
-  line-height: 1;
+
 }
 
 .columna3 {
   color: blueviolet;
-  line-height: 1;
+
 }
 
 
@@ -478,15 +477,14 @@ defineExpose({ initialPagination });
   width: 100%;
   height: 100%;
   font-size: 50px;
-  margin-top: 5%;
-  border-collapse: collapse;
+  // border-collapse: collapse;
   margin-top: 0%;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1.4px solid #000000;
-  padding: 0%;
   border-color: #000000;
-
   border: 2px solid #000000;
+  border-radius: 1%;
+
+ 
 
 }
 
@@ -498,17 +496,19 @@ defineExpose({ initialPagination });
   margin-top: 0%;
   font-weight: bold;
   border-bottom: 1px solid #ddd;
-  
+
 
   
 }
 
 .custom-table th {
-  font-size: 48px;
+  font-size: 50px;
   background-color: #1d3f93;
   color: antiquewhite;
   margin-top: 0%;
-  padding: 0%;
+
+
+  
   
   
   
@@ -518,7 +518,7 @@ defineExpose({ initialPagination });
 .custom-table td {
   font-size: 80px;
   margin-top: 0%;
-  padding: 0%;
+ 
   line-height: 1;
   
   
@@ -528,8 +528,8 @@ defineExpose({ initialPagination });
 .custom-table tbody tr:nth-child(even) {
   background-color: #f2f2f2;
   margin-top: 0%;
-  padding: 0%;
-  line-height: .5;
+
+
 
 }
 
@@ -538,14 +538,14 @@ defineExpose({ initialPagination });
     font-size: 55px;
     background-color: yellow;
     color: black;
-    line-height: 1;
+    
   }
 
   50% {
     font-size: 55px;
     background-color: transparent;
     color: black;
-    line-height: 1;
+  
   }
 
   // 75% {
@@ -559,34 +559,34 @@ defineExpose({ initialPagination });
     font-size: 55px;
     background-color: yellow;
     color: black;
-    line-height: 1;
+    
   }
 }
 
 @keyframes columna3 {
   0% {
     color: blueviolet;
-    line-height: 1;
+    
   }
 
   50% {
     color: blueviolet;
-    line-height: 1;
+    
   }
 
   100% {
     color: blueviolet;
-    line-height: 1;
+    
   }
 }
 
 .blink {
   animation: blink 2s infinite;
-  line-height: 1;
+  
 }
 
 .columna3 {
   color: blueviolet;
-  line-height: 1;
+  
 }
 </style>

@@ -2,7 +2,7 @@
 const routes = [
   {
     path: '/',
-    component: () => import('pages/TurnosStand.vue'),
+    component: () => import('pages/TurnosStand2.vue'),
 
     
     children: [

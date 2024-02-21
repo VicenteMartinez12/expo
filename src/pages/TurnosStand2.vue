@@ -78,7 +78,7 @@
            <img src="../img/1070.png" style="width: 60%; height: 80%; margin-top: 1%;  margin-left: 20%;" /> 
         </div>
         <div style="flex-grow: 3; display: flex">
-          <table class="custom-table">
+          <table class="custom-table2">
             <!-- Table header -->
 
             <thead>
@@ -231,16 +231,16 @@ const rows = ref([
 
 const rows2 = ref([
   {
-    turno2: "017",
+    turno2: "016",
     posicion2: 8,
   },
   {
-    turno2: "018",
+    turno2: "017",
     posicion2: 9,
     style: "background-color: red",
   },
   {
-    turno2: "019",
+    turno2: "018",
     posicion2: 10,
     estatus2: "Llamando",
   },
@@ -353,11 +353,11 @@ defineExpose({ initialPagination });
   height: 100%;
   font-size: 57px;
   margin-top: 5%;
-  border-collapse: collapse;
+ 
   margin-top: 0%;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid #ddd;
-  padding: 0%;
+  border: 2px solid #000000;
+border-radius: 1%;
 
 
 
@@ -460,5 +460,124 @@ defineExpose({ initialPagination });
 .columna3 {
   color: blueviolet;
   line-height: 1;
+}
+
+
+
+// sfdsdgsfgf
+
+
+.custom-table2 {
+  width: 100%;
+  height: 100%;
+  font-size: 53.8px;
+
+ 
+  margin-top: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid #000000;
+border-radius: 1%;
+padding: 0%;
+
+}
+
+.custom-table2 th,
+.custom-table2 td {
+  padding: 0px;
+  border: 0px solid #000000;
+  text-align: center;
+  margin-top: 0%;
+  font-weight: bold;
+    background-color: #5bd0ff;
+  border-radius: 1%;
+  
+}
+
+.custom-table2 th {
+  font-size: 40px;
+  background-color: #1d3f93;
+  color: antiquewhite;
+  margin-top: 0%;
+  padding: 0%;
+
+  
+  
+  
+
+}
+
+.custom-table2 td {
+  font-size: 70px;
+  margin-top: 0%;
+  padding: 0%;
+
+  
+  
+  
+
+}
+.custom-table2 tbody tr:nth-child(even) {
+  background-color: #5bd0ff;
+  margin-top: 0%;
+  padding: 0%;
+
+
+}
+
+@keyframes blink {
+  0% {
+    font-size: 55px;
+    background-color: yellow;
+    color: black;
+ 
+  }
+
+  50% {
+    font-size: 55px;
+    background-color: transparent;
+    color: black;
+  
+  }
+
+  // 75% {
+  //   transform: scale(1);
+  //   font-size: 45PX;
+  //   background-color: transparent;
+
+  // }
+
+  100% {
+    font-size: 55px;
+    background-color: yellow;
+    color: black;
+ 
+  }
+}
+
+@keyframes columna3 {
+  0% {
+    color: blueviolet;
+
+  }
+
+  50% {
+    color: blueviolet;
+   
+  }
+
+  100% {
+    color: blueviolet;
+    
+  }
+}
+
+.blink {
+  animation: blink 2s infinite;
+
+}
+
+.columna3 {
+  color: blueviolet;
+
 }
 </style>
