@@ -2,7 +2,7 @@
 const routes = [
   {
     path: '/',
-    component: () => import('pages/TurnosPasilloPage4.vue'),
+    component: () => import('pages/TurnosStand2.vue'),
 
     
     children: [

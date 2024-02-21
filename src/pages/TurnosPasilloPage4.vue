@@ -48,7 +48,7 @@
   </template>
   <template v-slot:body-cell-marca="props">
   <q-td :props="props" >
-    <img :src="props.row.marca" style="max-width: 300px; max-height: 600px; height: 80px; width: 250px; padding: 0%;">
+    <img :src="props.row.marca" style="max-width: 300px; max-height: 600px; height: 130px; width: 250px; padding: 0%;">
   </q-td>
 </template>
           </q-table>
@@ -93,7 +93,7 @@ const columns = ref([
     label: "Próximos turnos",
     field: "posicion",
     align:"right",
-    style: "font-size: 74px; font-weight: bold; width: 70%; padding: 0px;",
+    style: "font-size: 120px; font-weight: bold; width: 70%; padding: 0px;",
     
   },
   
@@ -183,7 +183,7 @@ defineExpose({ initialPagination });
 
 @keyframes blinker {
   50% {
-    background-color: yellow;
+    background-color:yellow;
   }
 }
 
