@@ -16,7 +16,7 @@
         </div>
 
         <div style="flex-grow: 3; display: flex">
-          <table class="custom-table" >
+          <table class="custom-table"  >
             <!-- Table header -->
 
             <thead>
@@ -78,7 +78,7 @@
           <!-- <img src="../img/1070.png" style="width: 60%; height: 130%; margin-top: 2%;  margin-left: 20%;" /> -->
         </div>
         <div style="flex-grow: 3; display: flex">
-          <table class="custom-table">
+          <table class="custom-table2">
             <!-- Table header -->
 
             <thead>
@@ -232,16 +232,16 @@ const rows = ref([
 const rows2 = ref([
   {
     turno2: "017",
-    posicion2: 8,
+    posicion2: 7,
   },
   {
     turno2: "018",
-    posicion2: 9,
+    posicion2: 8,
     style: "background-color: red",
   },
   {
     turno2: "019",
-    posicion2: 10,
+    posicion2: 9,
     estatus2: "Llamando",
   },
   {
@@ -251,6 +251,10 @@ const rows2 = ref([
   {
     turno2: "",
 
+    estatus2: "Espera",
+  },
+  {
+    turno2: "",
     estatus2: "Espera",
   },
   {
@@ -348,18 +352,141 @@ defineExpose({ initialPagination });
   transform: translateY(-100%);
 }
 
-.custom-table {
+.custom-table2 {
   width: 100%;
   height: 100%;
-  font-size: 57px;
+  font-size: 51px;
   margin-top: 5%;
   border-collapse: collapse;
   margin-top: 0%;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
+  padding-bottom: 10px;
+  border: 2px solid #000000;
+
+
+
+}
+
+.custom-table2 th,
+.custom-table2 td {
+  padding: 0px;
+  border: 0px solid #000000;
+  text-align: center;
+  margin-top: 0%;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  background-color: #3699c0;
+  
+}
+
+.custom-table2 th {
+  font-size: 40px;
+  background-color: #1d3f93;
+  color: antiquewhite;
+  margin-top: 0%;
   padding: 0%;
+  
+  
+  
+
+}
+
+.custom-table2 td {
+  font-size: 80px;
+  margin-top: 0%;
+  padding: 0%;
+  line-height: 1;
+  
+  
+  
+
+}
+.custom-table2 tbody tr:nth-child(even) {
+  background-color: #3699c0;
+  margin-top: 0%;
+  padding: 0%;
+  line-height: .5;
+
+}
+
+@keyframes blink {
+  0% {
+    font-size: 55px;
+    background-color: yellow;
+    color: black;
+    line-height: 1;
+  }
+
+  50% {
+    font-size: 55px;
+    background-color: transparent;
+    color: black;
+    line-height: 1;
+  }
+
+  // 75% {
+  //   transform: scale(1);
+  //   font-size: 45PX;
+  //   background-color: transparent;
+
+  // }
+
+  100% {
+    font-size: 55px;
+    background-color: yellow;
+    color: black;
+    line-height: 1;
+  }
+}
+
+@keyframes columna3 {
+  0% {
+    color: blueviolet;
+    line-height: 1;
+  }
+
+  50% {
+    color: blueviolet;
+    line-height: 1;
+  }
+
+  100% {
+    color: blueviolet;
+    line-height: 1;
+  }
+}
+
+.blink {
+  animation: blink 2s infinite;
+  line-height: 1;
+}
+
+.columna3 {
+  color: blueviolet;
+  line-height: 1;
+}
 
 
+
+
+
+// fdfdf
+
+
+.custom-table {
+  width: 100%;
+  height: 100%;
+  font-size: 50px;
+  margin-top: 5%;
+  border-collapse: collapse;
+  margin-top: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1.4px solid #000000;
+  padding: 0%;
+  border-color: #000000;
+
+  border: 2px solid #000000;
 
 }
 
@@ -371,12 +498,13 @@ defineExpose({ initialPagination });
   margin-top: 0%;
   font-weight: bold;
   border-bottom: 1px solid #ddd;
+  
 
   
 }
 
 .custom-table th {
-  font-size: 55px;
+  font-size: 48px;
   background-color: #1d3f93;
   color: antiquewhite;
   margin-top: 0%;
