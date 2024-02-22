@@ -1,4 +1,4 @@
-<img src="../img/1070.png" />
+
 <template>
   <div style="height: 100vh; display: flex; align-items: center">
     <q-card style="max-width: 55%; width: 55%; height: 100%">
