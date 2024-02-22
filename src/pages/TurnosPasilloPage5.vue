@@ -11,7 +11,7 @@
             :rows="rows"
             :columns="columns"
             row-key="turno"
-            style="width: 100%; height: 100%; font-size: 50px;"
+            style="width: 100%; height: 88%; font-size: 50px;"
             flat
             bordered
             :pagination="initialPagination"
@@ -39,7 +39,11 @@
             <template v-slot:body-cell-posicion="props">
     <q-td :props="props" class="posicion-cell">
       <div class="posiciones-container" v-if="Array.isArray(props.row.posiciones)">
-        <div v-for="(posicion, index) in props.row.posiciones" :key="index" class="posicion text-right" :class="{ 'flashing': posicion === '001' }">
+        <div v-for="(posicion, index) in props.row.posiciones" :key="index" class="posicion text-right" :class="{ 
+          'flashing': posicion === '053'||posicion ==='052' ||posicion ==='054' ||posicion ==='012' ||posicion ==='013' 
+          ||posicion ==='022' ||posicion ==='023' ||posicion ==='024' ||posicion ==='025'
+          ||posicion ==='042'||posicion ==='043'
+          ||posicion ==='032'||posicion ==='033'||posicion ==='034' }">
           {{ index > 0 ? '-' : '' }}{{ posicion }}
         </div>
       </div>
@@ -63,7 +67,7 @@ import { ref,onMounted,onBeforeUnmount } from "vue";
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const handleButtonClick = () => {
-  router.push('/stand');
+  router.push('/pasillo');
 };
 
 
@@ -93,7 +97,7 @@ const columns = ref([
     label: "Próximos turnos",
     field: "posicion",
     align:"right",
-    style: "font-size: 120px; font-weight: bold; width: 70%; padding: 0px;",
+    style: "font-size: 92px; font-weight: bold; width: 70%; padding: 0px;",
     
   },
   
@@ -105,25 +109,25 @@ const columns = ref([
 const rows = ref([
   {
     marca: `src/img/marcas/dixon.png` ,
-    posiciones: ['001','002','003','004','005',] ,
+    posiciones: ['052','053','054','055','056','057','058','059'] ,
   },
   {
     marca:  `src/img/marcas/norma.png`,
-    posiciones: ['001','002','003','004','005','006'] 
+    posiciones: ['012','013','014','015','016','017','018','019'] ,
   },
   {
     marca:  `src/img/marcas/scribe.png`,
-    posiciones: ['001','002','003','004'] 
+    posiciones: ['022','023','024','025','026','027','028','029'] ,
   },
   {
     marca:  `src/img/marcas/smart.png`,
-    posiciones: ['001','002','003'] 
+    posiciones: ['042','043','044','045','046','047','048','049'] ,
     
   },
   {
     marca:  `src/img/marcas/newell.png`,
 
-    posiciones: ['001','002','003','004','005','006'] 
+    posiciones: ['032','033','034','035','036','037','038','039'] ,
 
   },
   

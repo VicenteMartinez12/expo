@@ -1,19 +1,22 @@
-<img src="../img/1070.png" />
 <template>
   <div style="height: 100vh; display: flex; align-items: center">
+    <div
+          style="display: flex; justify-content: center; align-items: center; border-color: white;"
+        >
+          <!-- <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/> -->
+          <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 0%;" icon="arrow_forward" @click="handleButtonClick"/>
+        </div>
     <q-card
+    
       style="max-width: 33.3%; width: 33.3%; height: 100%; margin-right: 0.01%; border-color: white;"
     >
+    
+    
       <q-card-section
         style="height: 100%; display: flex; flex-direction: column; border-color: white;"
       >
         <!-- 1/4 del q-card-section -->
-        <div
-          style="display: flex; justify-content: center; align-items: center; border-color: white;"
-        >
-          <!-- <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/> -->
-          <!-- <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 10%;" icon="arrow_forward" @click="handleButtonClick"/> -->
-        </div>
+        
 
         <div style="flex-grow: 3; display: flex">
           <table class="custom-table"  >
@@ -110,9 +113,9 @@
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-// const handleButtonClick = () => {
-//   router.push('/pasillo2');
-// };
+const handleButtonClick = () => {
+  router.push('/stand2');
+};
 
 const slide = ref(1);
 const autoplay = ref(true);
@@ -266,6 +269,10 @@ const rows2 = ref([
 
 const rows3 = ref([
   {
+    turno3: "019",
+ 
+  },
+  {
     turno3: "020",
  
   },
@@ -283,10 +290,6 @@ const rows3 = ref([
   },
   {
     turno3: "024",
- 
-  },
-  {
-    turno3: "025",
  
   },
   
