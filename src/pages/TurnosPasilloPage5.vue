@@ -2,8 +2,8 @@
   <div style="height: 99.8vh; display: flex; align-items: center">
     <q-card style="max-width: 100%; width: 100%; height: 100%">
       <q-card-section style="height: 100%; display: flex; flex-direction: column">
-        <div style=" display: flex; justify-content: center; align-items: center;height: 8%;">
-        <q-btn color="primary" label="" style="margin-left: 2%;" icon="arrow_forward" @click="handleButtonClick"/>
+        <div style=" display: flex; justify-content: center; align-items: center;height: 0%;">
+        <q-btn color="primary" label="" style="margin-left: 0%;" icon="arrow_forward" @click="handleButtonClick"/>
         </div>
         <div style="display: flex; justify-content: center; align-items: center; height: 100%; margin-top: 0%;">
           
@@ -40,11 +40,11 @@
     <q-td :props="props" class="posicion-cell">
       <div class="posiciones-container" v-if="Array.isArray(props.row.posiciones)">
         <div v-for="(posicion, index) in props.row.posiciones" :key="index" class="posicion text-right" :class="{ 
-          'flashing': posicion === '053'||posicion ==='052' ||posicion ==='054' ||posicion ==='012' ||posicion ==='013' 
-          ||posicion ==='022' ||posicion ==='023' ||posicion ==='024' ||posicion ==='025'
-          ||posicion ==='042'||posicion ==='043'
-          ||posicion ==='032'||posicion ==='033'||posicion ==='034' }">
-          {{ index > 0 ? '-' : '' }}{{ posicion }}
+          'flashing': posicion === '53'||posicion ==='52' ||posicion ==='54' ||posicion ==='12' ||posicion ==='13' 
+          ||posicion ==='22' ||posicion ==='23' ||posicion ==='24' ||posicion ==='25'
+          ||posicion ==='42'||posicion ==='43'
+          ||posicion ==='32'||posicion ==='33'||posicion ==='34' }">
+          {{ index > 0 ? '' : '' }}{{ posicion }}
         </div>
       </div>
       <div v-else>{{ props.row.posicion }}</div>
@@ -109,25 +109,25 @@ const columns = ref([
 const rows = ref([
   {
     marca: `src/img/marcas/dixon.png` ,
-    posiciones: ['052','053','054','055','056','057','058','059'] ,
+    posiciones: ['52','53','54','55','56','57','58','59'] ,
   },
   {
     marca:  `src/img/marcas/norma.png`,
-    posiciones: ['012','013','014','015','016','017','018','019'] ,
+    posiciones: ['12','13','14','15','16','17','18','19'] ,
   },
   {
     marca:  `src/img/marcas/scribe.png`,
-    posiciones: ['022','023','024','025','026','027','028','029'] ,
+    posiciones: ['22','23','24','25','26','27','28','29'] ,
   },
   {
     marca:  `src/img/marcas/smart.png`,
-    posiciones: ['042','043','044','045','046','047','048','049'] ,
+    posiciones: ['42','43','44','45','46','47','48','49'] ,
     
   },
   {
     marca:  `src/img/marcas/newell.png`,
 
-    posiciones: ['032','033','034','035','036','037','038','039'] ,
+    posiciones: ['32','33','34','35','36','37','38','39'] ,
 
   },
   
@@ -162,6 +162,7 @@ defineExpose({ initialPagination });
   white-space: nowrap;
   overflow: hidden;
   text-align: right;
+ 
 
   
 }
@@ -173,7 +174,7 @@ defineExpose({ initialPagination });
 }
 
 .posicion {
-  margin-right: 10px; /* Espacio entre las posiciones */
+  margin-right: 80px; /* Espacio entre las posiciones */
   text-align: right;
   display: inline-block; 
  

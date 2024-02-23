@@ -4,6 +4,7 @@
       <q-card-section style="height: 100%; display: flex; flex-direction: column">
         <div style=" display: flex; justify-content: center; align-items: center;height: 8%;">
         <q-btn color="primary" label="" style="margin-left: 2%;" icon="arrow_forward" @click="handleButtonClick"/>
+        <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 0%;" icon="arrow_back" @click="atrasButtonClick"/>
         </div>
         <div style="display: flex; justify-content: center; align-items: center; height: 100%; margin-top: 0%;">
           
@@ -66,6 +67,10 @@ const handleButtonClick = () => {
   router.push('/stand');
 };
 
+
+const atrasButtonClick = () => {
+  router.push('/');
+}
 
 const slide = ref(1);
 const autoplay = ref(true);

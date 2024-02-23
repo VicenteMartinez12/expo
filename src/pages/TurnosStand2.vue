@@ -4,9 +4,13 @@
     <div
           style="display: flex; justify-content: center; align-items: center; border-color: white;"
         >
-          <!-- <img src="../img/expo.png" style="width: 30%; height: 300%; margin-top: 10%"/> -->
-          <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 0%;" icon="arrow_forward" @click="handleButtonClick"/>
+        <div style="display: block;">
+        <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 0%;" icon="arrow_forward" @click="handleButtonClick"/>
+        <q-btn color="primary" label="" style="margin-left: 2%; margin-top: 0%;" icon="arrow_back" @click="atrasButtonClick"/>
+      </div>
+      
         </div>
+        
     <q-card
       style="max-width: 33.3%; width: 33.3%; height: 100%; margin-right: 0.01%"
     >
@@ -121,6 +125,10 @@ const handleButtonClick = () => {
   router.push('/');
 };
 
+const atrasButtonClick = () => {
+  router.push('/stand');
+};
+
 const slide = ref(1);
 const autoplay = ref(true);
 
@@ -209,28 +217,28 @@ const columns3 = ref([
 
 const rows = ref([
   {
-    turno: "010",
+    turno: "1",
     posicion: 1,
   },
   {
-    turno: "011",
+    turno: "11",
     posicion: 2,
   },
   {
-    turno: "012",
+    turno: "12",
     posicion: 3,
   },
   {
-    turno: "013",
+    turno: "13",
     posicion: 4,
   },
   {
-    turno: "014",
+    turno: "14",
     posicion: 5,
     estatus: "",
   },
   {
-    turno: "015",
+    turno: "15",
     posicion: 6,
   },
 
@@ -238,16 +246,16 @@ const rows = ref([
 
 const rows2 = ref([
 {
-    turno2: "016",
+    turno2: "16",
     posicion2: 7,
   },
   {
-    turno2: "017",
+    turno2: "17",
     posicion2: 8,
     style: "background-color: red",
   },
   {
-    turno2: "018",
+    turno2: "18",
     posicion2: 9,
     estatus2: "Llamando",
   },
@@ -269,27 +277,27 @@ const rows2 = ref([
 
 const rows3 = ref([
 {
-    turno3: "019",
+    turno3: "19",
  
   },
   {
-    turno3: "020",
+    turno3: "20",
  
   },
   {
-    turno3: "021",
+    turno3: "21",
  
   },
   {
-    turno3: "022",
+    turno3: "22",
  
   },
   {
-    turno3: "023",
+    turno3: "23",
  
   },
   {
-    turno3: "024",
+    turno3: "24",
  
   },
   
@@ -304,7 +312,7 @@ const getRowStyle = (row) => {
 };
 
 const shouldBlink = (row) => {
-  return (row.turno2 === "018" );
+  return (row.turno2 === "18" );
 };
 
 const columna3 = (row) => {
