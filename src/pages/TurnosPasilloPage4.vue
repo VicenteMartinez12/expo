@@ -97,8 +97,8 @@ const columns = ref([
     name: "posicion",
     label: "Próximos turnos",
     field: "posicion",
-    align:"right",
-    style: "font-size: 120px; font-weight: bold; width: 70%; padding: 0px;",
+    align:"left",
+    style: "font-size: 120px; font-weight: bold; width: 70%; padding: 0px; ",
     
   },
   
@@ -110,19 +110,19 @@ const columns = ref([
 const rows = ref([
   {
     marca: `src/img/marcas/dixon.png` ,
-    posiciones: ['001','002','003','004','005',] ,
-  },
-  {
-    marca:  `src/img/marcas/norma.png`,
     posiciones: ['001','002','003','004','005','006'] 
   },
   {
+    marca:  `src/img/marcas/norma.png`,
+    posiciones: ['010','011','012','013','014','015'] 
+  },
+  {
     marca:  `src/img/marcas/scribe.png`,
-    posiciones: ['001','002','003','004'] 
+    posiciones: ['021','022','023','024'] 
   },
   {
     marca:  `src/img/marcas/smart.png`,
-    posiciones: ['001','002','003'] 
+    posiciones: ['001','002','003','004','005','006'] 
     
   },
   {
@@ -162,20 +162,21 @@ defineExpose({ initialPagination });
 .posicion-cell {
   white-space: nowrap;
   overflow: hidden;
-  text-align: right;
+  text-align: left;
+  align-items: center;
 
   
 }
 
 .posiciones-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 
 }
 
 .posicion {
   margin-right: 10px; /* Espacio entre las posiciones */
-  text-align: right;
+  text-align: start;
   display: inline-block; 
  
 
